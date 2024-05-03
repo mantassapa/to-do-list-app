@@ -1,0 +1,57 @@
+:root{
+  --primary-color: rgb(17, 16, 16);
+  --secondary-color: rgb(7, 176, 210);
+}
+.light-theme{
+  --primary-color: rgb(176, 174, 174);
+  --secondary-color: rgb(10, 101, 120);
+}
+*{
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  margin: 0px;
+  padding: 0px;
+}
+
+header, footer{
+  background-color: var(--primary-color);
+  border-top: 1px solid var(--secondary-color);
+  border-bottom: 1px solid var(--secondary-color);
+}
+.todo_card{
+  border: 1px solid;
+}
+header{
+  position: sticky;
+  top: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+footer{
+  height: 50px;
+  overflow: hidden;
+  bottom: 0px;
+}
+main{
+  min-height: 94vh;
+  height: auto;
+}
+.task_form, .task_form_edit{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.task_form>form, .task_form_edit>form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
