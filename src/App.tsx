@@ -18,8 +18,10 @@ function App() {
     <div className="App">
       <Header setTaskFormShow={setTaskFormShow}/>
       <Main toDoData={toDoData} setToDoData={setToDoData} setTaskFormEditShow={setTaskFormEditShow}/>
+      <div className='forms'>
       <TaskForm taskFormShow={taskFormShow} setTaskFormShow={setTaskFormShow}/>
       <TaskFormEdit toDoData={toDoData} taskFormEditShow={taskFormEditShow} setTaskFormEditShow={setTaskFormEditShow}/>
+      </div>
       <Footer/>
     </div>
   );
