@@ -23,8 +23,6 @@ export interface ToDoInterForOne {
 export interface MainInter{
     toDoData: ToDoInter[];
 
-    setToDoData: React.Dispatch<React.SetStateAction<ToDoInter[]>>;
-
     setTaskFormEditShow: React.Dispatch<React.SetStateAction<{
         show: number;
         el: {
@@ -43,18 +41,33 @@ export interface MainInter{
         show: Number;
         el: ToDoInter;
     };
+    setTaskFormShow: React.Dispatch<React.SetStateAction<number>>;
+    setGetToDoData: React.Dispatch<React.SetStateAction<Number[]>>;
 }
 
 
 
 export interface TaskFormShowInter{
     setTaskFormShow: React.Dispatch<React.SetStateAction<number>>;
-    taskFormShow?:number;
+    taskFormShow:number;
+    setTaskFormEditShow: React.Dispatch<React.SetStateAction<{
+        show: number;
+        el: {
+            _id: string;
+            title: string;
+            description: string;
+            start: string;
+            end: string;
+            added: number;
+            updated: number;
+            finished: boolean;
+        };
+    }>>;
+    setGetToDoData: React.Dispatch<React.SetStateAction<Number[]>>;
 }
 
 
 export interface TaskFormEditShowInter{
-    toDoData: ToDoInter[];
     setTaskFormEditShow: React.Dispatch<React.SetStateAction<{
         show: number;
         el: {
@@ -72,4 +85,5 @@ export interface TaskFormEditShowInter{
         show: Number;
         el: ToDoInter;
     };
+    setGetToDoData: React.Dispatch<React.SetStateAction<Number[]>>;
 }

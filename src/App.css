@@ -1,10 +1,13 @@
 :root{
   --primary-color: rgb(17, 16, 16);
-  --secondary-color: rgb(7, 176, 210);
+  --secondary-color: rgb(28, 126, 187);
+  --warning-color: rgb(190, 6, 6);
+  --background-color: linear-gradient(to right,rgb(1, 7, 47) , rgb(19, 1, 19));
 }
 .light-theme{
-  --primary-color: rgb(176, 174, 174);
-  --secondary-color: rgb(10, 101, 120);
+  --primary-color: rgb(250, 250, 250);
+  --secondary-color: rgb(0, 0, 0);
+  --background-color: linear-gradient(to right,rgb(209, 233, 236) , rgb(174, 205, 236));
 }
 *{
   background-color: var(--primary-color);
@@ -15,12 +18,11 @@
 
 header, footer{
   background-color: var(--primary-color);
+  background-image: var(--background-color);
   border-top: 1px solid var(--secondary-color);
   border-bottom: 1px solid var(--secondary-color);
 }
-.todo_card{
-  border: 1px solid;
-}
+
 header{
   position: sticky;
   top: 0px;
@@ -54,7 +56,67 @@ footer{
 main{
   min-height: 94vh;
   height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-image: var(--background-color);
 }
+main>h1{
+  background-color: rgba(255, 255, 255, 0);
+}
+/* cards start */
+.todo_card{
+  border: 1px solid;
+  width: 65%;
+  position: relative;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+}
+.todo_card>button{
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 5px;
+  padding: 1px;
+}
+#delete_btn{
+  background-color: var(--warning-color);
+}
+#edit_btn{
+  right: 50px;
+}
+#finish_checkbox{
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+#finish_checkbox--label{
+  position: absolute;
+  right: 20px;
+  top: 0px;
+}
+
+#start_end-time{
+  position: absolute;
+  display: flex;
+  bottom: 0px;
+  left: 15px;
+  gap: 20px;
+}
+.todo_card>h4{
+  margin-bottom: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.todo_card>h3{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+/* cards end */
 .App{
   position: relative;
 }

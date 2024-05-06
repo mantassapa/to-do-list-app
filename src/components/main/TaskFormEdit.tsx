@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { TaskFormEditShowInter } from '../../interfaces/interface'
 import { updateToDo } from '../../config/config'
 
-const TaskFormEdit = ({toDoData,taskFormEditShow,setTaskFormEditShow}:TaskFormEditShowInter) => {
+const TaskFormEdit = ({taskFormEditShow,setTaskFormEditShow,setGetToDoData}:TaskFormEditShowInter) => {
     const theOnesData = taskFormEditShow.el
     const [formData, setFormData] = useState<any>(theOnesData)
     const handleChange=(el:any)=>{
@@ -13,20 +13,25 @@ const TaskFormEdit = ({toDoData,taskFormEditShow,setTaskFormEditShow}:TaskFormEd
         }))
     }
     useEffect(()=>{
-        setFormData(theOnesData)
+        setFormData(theOnesData)   
     },[theOnesData])
+    console.log(theOnesData);
+    
 
     
 
     const handleSubmit =(ev:React.FormEvent)=>{
+        ev.preventDefault()
         setFormData((prev:any)=>({
             ...prev,
-            added:Date.now(),
             updated:Date.now() 
         }))
         updateToDo(theOnesData._id, formData)
+        setGetToDoData([])
         // alert("great succes Updating")
     }
+    // console.log("log");
+    
     // console.log(theOnesData._id);
     // console.log(theOnesData);
     //     toDoData.map((el)=>{if(el._id===taskFormEditShow.id){

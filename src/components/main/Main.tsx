@@ -5,25 +5,19 @@ import { defaultObject } from './TaskFormEdit'
 
 
 
-const Main = ({toDoData,setToDoData,setTaskFormEditShow}:MainInter) => {
-    const [getToDoData, setGetToDoData] = useState<number>(0)
+const Main = ({
+  toDoData,
+  setTaskFormEditShow,
+  setTaskFormShow,
+  setGetToDoData}:MainInter) => {
 
-    // const [toDoData, setToDoData] = useState<Array<ToDoInter>>([])
-    useEffect(()=>{
-        getToDo(setToDoData)
-    },[getToDoData,toDoData])
 
     const handleDelete =(el:any)=>{
       el.preventDefault()
         deleteToDo(el.target.parentNode.id)
-      // toDoData.map((el)=>{if(el._id===id){
-      //   toDoData.splice(toDoData.indexOf(el),1)
-      
-      //   setToDoData(toDoData)
-      // }})
-      // document.getElementById(el.target.parentNode.id)?.remove()
-    }
+        setGetToDoData([])
 
+    }
 
 
     const handleCheck=(el:any)=>{
@@ -31,44 +25,36 @@ const Main = ({toDoData,setToDoData,setTaskFormEditShow}:MainInter) => {
         if(e._id===el.target.parentNode.id){
           e.finished=el.target.checked
           updateToDo(el.target.parentNode.id, e)
+          setGetToDoData([])
         }
-      
       })
-      
-      
-      // setToDoData((prev:any)=>({
-      //   ...prev,
-      //   finished:el.target.checked
-      // }))
-      // setToDoData({finished:el.target.checked})
-
-
     }
     
   return (
     <main>
+      <h1>My ToDo's</h1>
        {toDoData?.map((el, index)=>(
             <div className='todo_card' key={el._id} id={el._id}>
                 {/* <h3>{el._id}</h3> */}
                 <h3>{el.title}</h3>
                 <h4>{el.description}</h4>
+                <div id='start_end-time'>
                 <h5>Start: {el.start}</h5>
                 <h5>End: {el.end}</h5>
-                <button onClick={()=>setTaskFormEditShow({show:1,el:{
+                </div>
+                <button id='edit_btn' onClick={()=>{setTaskFormEditShow({show:1,el:{
                       _id: String(el._id),
                       title: String(el.title),
-                      description: String(el.title),
+                      description: String(el.description),
                       start: String(el.start),
                       end: String(el.end),
                       added:Number(el.added),
                       updated:Number(el.updated),
                       finished:Boolean(el.finished),
-                }})}>edit</button>
-                <button onClick={handleDelete}>delete</button>
-
-                <label htmlFor="finish_checkbox">Finished:</label>
+                }});setTaskFormShow(0)}}>Edit</button>
+                <button onClick={handleDelete} id='delete_btn'>Delete</button>
+                <label id='finish_checkbox--label' htmlFor="finish_checkbox">Finished: </label>
                 <input id='finish_checkbox' type="checkbox" name='finished' checked={el.finished} onChange={handleCheck}/>
-
             </div>
         ))}
     </main>

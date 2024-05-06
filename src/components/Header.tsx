@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import { TaskFormShowInter } from '../interfaces/interface'
 import { deleteToDo } from '../config/config';
 import { lightModeTogle } from '../config/sideFunctions';
+import { defaultObject } from './main/TaskFormEdit';
 
-const Header = ({setTaskFormShow}:TaskFormShowInter) => {
+const Header = ({taskFormShow,setTaskFormShow,setTaskFormEditShow,setGetToDoData}:TaskFormShowInter) => {
   const [showDelete, setShowDelete] = useState<Number>(0)
 
   const handleDeleteAll = (el:any) =>{
@@ -13,11 +14,13 @@ const Header = ({setTaskFormShow}:TaskFormShowInter) => {
     })
     alert("great success")
     setShowDelete(0)
+    setGetToDoData([])
   
   }
   return (
     <header>
-        <button onClick={()=>{setTaskFormShow(1)}}>add new Task +</button>
+        <button onClick={()=>{setTaskFormShow(taskFormShow===0?1:0);;
+          setTaskFormEditShow({show:0,el:defaultObject})}}>add new Task +</button>
         <button onClick={()=>{}}>Order</button>
         <button onClick={()=>{setShowDelete(1)}}>Delete All</button>
         {showDelete===1?

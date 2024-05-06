@@ -2,7 +2,7 @@ import React, { InputHTMLAttributes, useState } from 'react'
 import { TaskFormShowInter, ToDoInter } from '../../interfaces/interface'
 import { postToDo } from '../../config/config'
 
-const TaskForm = ({taskFormShow, setTaskFormShow}:TaskFormShowInter) => {
+const TaskForm = ({taskFormShow, setTaskFormShow, setGetToDoData}:TaskFormShowInter) => {
     const [formData, setFormData] = useState({
         title:"",
         description:"",
@@ -33,10 +33,10 @@ const TaskForm = ({taskFormShow, setTaskFormShow}:TaskFormShowInter) => {
             
         }))
         postToDo(formData)
+        setGetToDoData([])
         // alert("great succes")
         
     }
-    // console.log(formData.start);
     
     
  
