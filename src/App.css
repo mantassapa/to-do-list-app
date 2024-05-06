@@ -1,6 +1,6 @@
 :root{
   --primary-color: rgb(17, 16, 16);
-  --secondary-color: rgb(28, 126, 187);
+  --secondary-color: rgb(198, 203, 206);
   --warning-color: rgb(190, 6, 6);
   --background-color: linear-gradient(to right,rgb(1, 7, 47) , rgb(19, 1, 19));
 }
@@ -25,6 +25,7 @@ header, footer{
 
 header{
   position: sticky;
+  padding: 2px;
   top: 0px;
   height: 20px;
   display: flex;
@@ -32,6 +33,11 @@ header{
   justify-content: center;
   gap: 50px;
   z-index: 2;
+}
+header>button{
+  border-radius: 0px 10px 0px 10px;
+  padding: 1px 4px;
+  background-color: var(--background-color);
 }
 .delete_all{
   position: absolute;
@@ -61,6 +67,8 @@ main{
   align-items: center;
   gap: 20px;
   background-image: var(--background-color);
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
 main>h1{
   background-color: rgba(255, 255, 255, 0);
@@ -120,11 +128,13 @@ main>h1{
 .App{
   position: relative;
 }
+/* forms start */
 .forms{
   position: absolute;
   top: 0px;
   right: 0px;
   height: 100%;
+  background-color: transparent;
 }
 .task_form, .task_form_edit{
   position: sticky;
@@ -134,10 +144,34 @@ main>h1{
   gap: 20px;
   align-items: center;
   justify-content: center;
+  background-image: var(--background-color);
+  padding: 10px;
+  border-radius: 50px 0px 0px 50px;
+}
+.task_form>h3, .task_form_edit>h3{
+  background-color: transparent;
 }
 .task_form>form, .task_form_edit>form{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 5px;
+  background-image: var(--background-color);
 }
+form>label{
+  background-color: transparent;
+}
+
+#taskform_input--title{
+  width: 200px;
+  text-align: center;
+}
+#taskform_input--description{
+  width: 200px;
+  min-height: 100px;
+}
+::-webkit-calendar-picker-indicator{
+  background-color: rgb(28, 126, 187);
+}
+/* forms end */

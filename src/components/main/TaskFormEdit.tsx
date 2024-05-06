@@ -15,7 +15,6 @@ const TaskFormEdit = ({taskFormEditShow,setTaskFormEditShow,setGetToDoData}:Task
     useEffect(()=>{
         setFormData(theOnesData)   
     },[theOnesData])
-    console.log(theOnesData);
     
 
     
